@@ -197,5 +197,18 @@ wc_df['pi0_angle_front'] = wc_df.apply( # Off-axis angle of each pi0 that produc
     axis = 1
 )
 
+wc_df['pi0_angle_back'] = wc_df.apply( # Off-axis angle of each pi0 that produced a shower, when projected to the front face of the TPC
+    lambda row: [offAxAngle(row['StartPointx'][row['shower_pi0_dex'][i]], row['StartPointy'][row['shower_pi0_dex'][i]], 
+                            row['StartPointz'][row['shower_pi0_dex'][i]], False, True) 
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_pi0_dex']))],
+    axis = 1
+)
+
+wc_df['pi0_angle_exact'] = wc_df.apply( # Off-axis angle of each pi0 that produced a shower, when projected to the front face of the TPC
+    lambda row: [offAxAngle(row['StartPointx'][row['shower_pi0_dex'][i]], row['StartPointy'][row['shower_pi0_dex'][i]], 
+                            row['StartPointz'][row['shower_pi0_dex'][i]], True, False) 
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_pi0_dex']))],
+    axis = 1
+)
 
 wc_df.to_pickle('./data.pkl')
