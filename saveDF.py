@@ -176,17 +176,20 @@ def offAxAngle(x, y, z, exact, backface): # Calculate the off-axis angles
     return np.arctan2(((x-beamCenterX)**2 + (y-beamCenterY)**2)**0.5, beamCenterZ)*180/np.pi
 
 wc_df['shower_angle_front'] = wc_df.apply( # Off-axis angle of single shower, when projected to the front face of the TPC
-    lambda row: offAxAngle(row['shower_position'][0][0], row['shower_position'][0][1], row['shower_position'][0][2], False, False) if row['N_showers'] == 1 else None,
+    lambda row: [offAxAngle(row['shower_position'][i][0], row['shower_position'][i][1], row['shower_position'][i][2], False, False) 
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_position']))],
     axis = 1
 )
 
 wc_df['shower_angle_back'] = wc_df.apply( # Off-axis angle of single shower, when projected to the back face of the TPC
-    lambda row: offAxAngle(row['shower_position'][0][0], row['shower_position'][0][1], row['shower_position'][0][2], False, True) if row['N_showers'] == 1 else None,
+    lambda row: [offAxAngle(row['shower_position'][i][0], row['shower_position'][i][1], row['shower_position'][i][2], False, True) 
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_position']))],
     axis = 1
 )
 
 wc_df['shower_angle_exact'] = wc_df.apply( # Off-axis angle of single shower, using the exact position of the shower
-    lambda row: offAxAngle(row['shower_position'][0][0], row['shower_position'][0][1], row['shower_position'][0][2], True, False) if row['N_showers'] == 1 else None,
+    lambda row: [offAxAngle(row['shower_position'][i][0], row['shower_position'][i][1], row['shower_position'][i][2], True, False) 
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_position']))],
     axis = 1
 )
 

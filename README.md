@@ -39,9 +39,9 @@
 - "shower_origin" : Array[{0,1}] : 1 if the corresponding Geant4 particle created an electromagnetic shower in the TPC, else 0
 - "shower_pi0_dex" : Array[int] : Indices of each $\pi^0$ that decayed and produced an electromagnetic shower in the TPC
 - "shower_position" : Array[Tuple(float, float, float)] : Starting positions (x, y, z) of the electromagnetic showers
-- "shower_angle_front" : float : Off-axis angle of a single shower, with position projected to the front face of the TPC. None when event has more than 1 shower or no showers
-- "shower_angle_back" : float : Off-axis angle of a single shower, with position projected to the back face of the TPC. None when event has more than 1 shower or no showers
-- "shower_angle_exact" : float : Off-axis angle of a single shower, using the exact position. None when event has more than 1 shower or no showers
+- "shower_angle_front" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the front face of the TPC. None when event has 0 showers
+- "shower_angle_back" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the back face of the TPC. None when event has 0 showers
+- "shower_angle_exact" : Array[float] : Off-axis angle of electromagnetic showers, using the exact position. None when event has 0 showers
 - "pi0_angle_front" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, with position projected to the front face of the TPC. None when event has 0 showers
 - "pi0_angle_back" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, with position projected to the back face of the TPC. None when event has 0 showers
 - "pi0_angle_exact" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, using the exact position. None when event has 0 showers
