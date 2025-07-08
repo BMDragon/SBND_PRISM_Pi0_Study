@@ -1,1 +1,52 @@
 # SBND_PRISM_Pi0_Study
+
+### Keys in dataframe:
+- "run" : int : run number
+- "subrun" : int : subrun number
+- "event" : int : event number
+- "mc_pdg" : Array[int] : PDG codes of GENIE particles
+- "mc_mother" : Array[int] : Track IDs of GENIE mother particles
+- "mc_trackID" : Array[int] : Track IDs of GENIE particles
+- "mc_statusCode" : Array[int] : Status codes of GENIE particles
+- "mc_energy" : Array[float] : Energies of GENIE particles
+- "mc_vx" : Array[float] : X positions of GENIE particles
+- "mc_vy" : Array[float] : Y positions of GENIE particles
+- "mc_vz" : Array[float] : Z positions of GENIE particles
+- "mc_time" : Array[float] : Time of GENIE particles
+- "NumberDaughters" : Array[int] : Number of daughters from Geant4 particles
+- "pdg" : Array[int] : PDG codes of Geant4 particles
+- "status" : Array[int] : Status codes of Geant4 particles
+- "Eng" : Array[float] : Energies of Geant4 particles
+- "Mass" : Array[float] : Masses of Geant4 particles
+- "Px" : Array[float] : X momenta of Geant4 particles
+- "Py" : Array[float] : Y momenta of Geant4 particles
+- "Pz" : Array[float] : Z momenta of Geant4 particles
+- "StartPointx" : Array[float] : Starting X positions of Geant4 particles
+- "StartPointy" : Array[float] : Starting Y positions of Geant4 particles
+- "StartPointz" : Array[float] : Starting Z positions of Geant4 particles
+- "EndPointx" : Array[float] : Ending X positions of Geant4 particles
+- "EndPointy" : Array[float] : Ending Y positions of Geant4 particles
+- "EndPointz" : Array[float] : Ending Z positions of Geant4 particles
+- "TrackId" : Array[int] : Track IDs of Geant4 particles
+- "Mother" : Array[int] : Track IDs of Geant4 mother particles
+- "nu_energy" : float : Energy of the neutrino for each event
+- "N_pi0_genie" : int : Number of GENIE $\pi^0$ in each event
+- "N_ch_pion_genie" : int : Number of GENIE $\pi^\pm$ in each event
+- "in_TPC_g4" : Array[bool] : Noting whether each Geant4 particle has starting vertex inside the TPC or not
+- "dist_to_edge_g4" : Array[float] : Absolute distance to the nearest edge of the TPC for Geant4 particles
+- "signed_dist_to_edge_g4" : Array[float] : Distance to the nearest edge of the TPC for Geant4 particles, where negative values indicate the particle is outside the TPC
+- "N_showers" : int : Number of electromagnetic showers in the TPC
+- "shower_origin" : Array[{0,1}] : 1 if the corresponding Geant4 particle created an electromagnetic shower in the TPC, else 0
+- "shower_pi0_dex" : Array[int] : Indices of each $\pi^0$ that decayed and produced an electromagnetic shower in the TPC
+- "shower_position" : Array[Tuple(float, float, float)] : Starting positions (x, y, z) of the electromagnetic showers
+- "shower_angle_front" : float : Off-axis angle of a single shower, with position projected to the front face of the TPC. None when event has more than 1 shower or no showers
+- "shower_angle_back" : float : Off-axis angle of a single shower, with position projected to the back face of the TPC. None when event has more than 1 shower or no showers
+- "shower_angle_exact" : float : Off-axis angle of a single shower, using the exact position. None when event has more than 1 shower or no showers
+- "pi0_angle_front" : Array[float] : Off-axis angles of each $\pi^0$, with position projected to the front face of the TPC. None when event has 0 showers
+
+### Masks in dataframe:
+- "is_1pi0" : Events with only 1 $\pi^0$ from GENIE
+- "is_2pi0" : Events with more than 1 $\pi^0$
+- "is_NC" : Mask for neutral current events
+- "has_non_primary" : Events that contain at least 1 cosmic or reinteraction $\pi^0$
+- "single_shower : Events with only one electromagnetic shower in the TPC
