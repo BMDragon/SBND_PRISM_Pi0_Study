@@ -42,7 +42,7 @@
 - "shower_angle_front" : float : Off-axis angle of a single shower, with position projected to the front face of the TPC. None when event has more than 1 shower or no showers
 - "shower_angle_back" : float : Off-axis angle of a single shower, with position projected to the back face of the TPC. None when event has more than 1 shower or no showers
 - "shower_angle_exact" : float : Off-axis angle of a single shower, using the exact position. None when event has more than 1 shower or no showers
-- "pi0_angle_front" : Array[float] : Off-axis angles of each $\pi^0$, with position projected to the front face of the TPC. None when event has 0 showers
+- "pi0_angle_front" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, with position projected to the front face of the TPC. None when event has 0 showers
 
 ### Masks in dataframe:
 - "is_1pi0" : Events with only 1 $\pi^0$ from GENIE
