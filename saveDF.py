@@ -193,6 +193,12 @@ wc_df['shower_angle_exact'] = wc_df.apply( # Off-axis angle of single shower, us
     axis = 1
 )
 
+wc_df['shower_dist_to_edge'] = wc_df.apply( # Distance to the nearest edge of the TPC for each shower
+    lambda row: [signedDistToEdge(row['shower_position'][i][0], row['shower_position'][i][1], row['shower_position'][i][2])
+                 if row['N_showers'] > 0 else None for i in range(len(row['shower_position']))],
+    axis = 1
+)
+
 wc_df['pi0_angle_front'] = wc_df.apply( # Off-axis angle of each pi0 that produced a shower, when projected to the front face of the TPC
     lambda row: [offAxAngle(row['StartPointx'][row['shower_pi0_dex'][i]], row['StartPointy'][row['shower_pi0_dex'][i]], 
                             row['StartPointz'][row['shower_pi0_dex'][i]], False, False) 

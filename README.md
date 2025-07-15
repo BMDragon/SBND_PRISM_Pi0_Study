@@ -42,6 +42,7 @@
 - "shower_angle_front" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the front face of the TPC. None when event has 0 showers
 - "shower_angle_back" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the back face of the TPC. None when event has 0 showers
 - "shower_angle_exact" : Array[float] : Off-axis angle of electromagnetic showers, using the exact position. None when event has 0 showers
+- "shower_dist_to_edge" : Array[float] : signed distance to the nearest edge of the tpc for the head of each shower in event. None when event has 0 showers
 - "pi0_angle_front" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, with position projected to the front face of the TPC. None when event has 0 showers
 - "pi0_angle_back" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, with position projected to the back face of the TPC. None when event has 0 showers
 - "pi0_angle_exact" : Array[float] : Off-axis angles of each $\pi^0$ that produced a shower, using the exact position. None when event has 0 showers
