@@ -8,7 +8,7 @@
 - "mc_mother" : Array[int] : Track IDs of GENIE mother particles
 - "mc_trackID" : Array[int] : Track IDs of GENIE particles
 - "mc_statusCode" : Array[int] : Status codes of GENIE particles
-- "mc_energy" : Array[float] : Energies of GENIE particles
+- "mc_energy" : Array[float] : Energies of GENIE particles in GeV
 - "mc_vx" : Array[float] : X positions of GENIE particles
 - "mc_vy" : Array[float] : Y positions of GENIE particles
 - "mc_vz" : Array[float] : Z positions of GENIE particles
@@ -16,7 +16,7 @@
 - "NumberDaughters" : Array[int] : Number of daughters from Geant4 particles
 - "pdg" : Array[int] : PDG codes of Geant4 particles
 - "status" : Array[int] : Status codes of Geant4 particles
-- "Eng" : Array[float] : Energies of Geant4 particles
+- "Eng" : Array[float] : Energies of Geant4 particles in GeV
 - "Mass" : Array[float] : Masses of Geant4 particles
 - "Px" : Array[float] : X momenta of Geant4 particles
 - "Py" : Array[float] : Y momenta of Geant4 particles
