@@ -39,6 +39,7 @@
 - "shower_origin" : Array[{0,1}] : 1 if the corresponding Geant4 particle created an electromagnetic shower in the TPC, else 0
 - "shower_pi0_dex" : Array[int] : Indices of each $\pi^0$ that decayed and produced an electromagnetic shower in the TPC
 - "shower_position" : Array[Tuple(float, float, float)] : Starting positions (x, y, z) of the electromagnetic showers
+- "shower_energy" : Array[float] : Energies of the electromagnetic showers in GeV
 - "shower_angle_front" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the front face of the TPC. None when event has 0 showers
 - "shower_angle_back" : Array[float] : Off-axis angle of electromagnetic showers, with position projected to the back face of the TPC. None when event has 0 showers
 - "shower_angle_exact" : Array[float] : Off-axis angle of electromagnetic showers, using the exact position. None when event has 0 showers

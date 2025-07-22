@@ -215,6 +215,11 @@ wc_df['shower_position'] = wc_df.apply( # Position of the start of the EM shower
     axis=1
 )
 
+wc_df['shower_energy'] = wc_df.apply( # Energy of the EM showers
+    lambda row: [row['Eng'][i] for i, origin in enumerate(row['shower_origin']) if origin == 1],
+    axis=1
+)
+
 def offAxAngle(x, y, z, exact, backface): # Calculate the off-axis angles
     if exact: 
         return np.arctan2(((x-beamCenterX)**2 + (y-beamCenterY)**2)**0.5, z+beamCenterZ)*180/np.pi
