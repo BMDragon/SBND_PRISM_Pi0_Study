@@ -140,8 +140,7 @@ def distToEdge(x, y, z): # Calculate the distance from a point to the nearest bo
 def signedDistToEdge(x, y, z): # Calculate the distance from a point to the nearest edge of the TPC, 
     if inTPC(x, y, z):         # negative values mean outside the tpc
         return distToEdge(x, y, z)
-    arr = np.array([x-tpcMinX, x-tpcMaxX, y-tpcMinY, y-tpcMaxY, z-tpcMinZ, z-tpcMaxZ])
-    return arr[np.argmin(np.abs(arr))]
+    return -distToEdge(x, y, z)
 
 wc_df['in_TPC_g4'] = wc_df.apply( # Marking if Geant4 particles are inside the TPC
     lambda row: [inTPC(row['StartPointx'][x], row['StartPointy'][x], row['StartPointz'][x]) for x in range(len(row['pdg']))],
