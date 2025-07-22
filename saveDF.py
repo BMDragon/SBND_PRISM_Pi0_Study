@@ -86,7 +86,55 @@ def inTPC(x, y, z): # Check if a point is inside the TPC boundaries
         z >= tpcMinZ and z <= tpcMaxZ
     )
 
-def distToEdge(x, y, z): # Calculate the distance from a point to the nearest edge of the TPC
+def distToEdge(x, y, z): # Calculate the distance from a point to the nearest boundary of the TPC
+    if not inTPC(x, y, z):
+        if z > tpcMaxZ:
+            if y > tpcMaxY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMaxY)**2 + (z-tpcMaxZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMaxY)**2 + (z-tpcMaxZ)**2)**0.5
+                return ((y-tpcMaxY)**2 + (z-tpcMaxZ)**2)**0.5
+            elif y < tpcMinY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMinY)**2 + (z-tpcMaxZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMinY)**2 + (z-tpcMaxZ)**2)**0.5
+                return ((y-tpcMinY)**2 + (z-tpcMaxZ)**2)**0.5
+            else:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (z-tpcMaxZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (z-tpcMaxZ)**2)**0.5
+        elif z < tpcMinZ:
+            if y > tpcMaxY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMaxY)**2 + (z-tpcMinZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMaxY)**2 + (z-tpcMinZ)**2)**0.5
+                return ((y-tpcMaxY)**2 + (z-tpcMinZ)**2)**0.5
+            elif y < tpcMinY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMinY)**2 + (z-tpcMinZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMinY)**2 + (z-tpcMinZ)**2)**0.5
+                return ((y-tpcMinY)**2 + (z-tpcMinZ)**2)**0.5
+            else:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (z-tpcMinZ)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (z-tpcMinZ)**2)**0.5
+        else:
+            if y > tpcMaxY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMaxY)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMaxY)**2)**0.5
+            elif y < tpcMinY:
+                if x > tpcMaxX:
+                    return ((x-tpcMaxX)**2 + (y-tpcMinY)**2)**0.5
+                elif x < tpcMinX:
+                    return ((x-tpcMinX)**2 + (y-tpcMinY)**2)**0.5
     return min(abs(x-tpcMinX), abs(x-tpcMaxX), abs(y-tpcMinY), abs(y-tpcMaxY), abs(z-tpcMinZ), abs(z-tpcMaxZ))
 
 def signedDistToEdge(x, y, z): # Calculate the distance from a point to the nearest edge of the TPC, 
