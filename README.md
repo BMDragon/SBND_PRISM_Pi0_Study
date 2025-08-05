@@ -56,3 +56,15 @@
 - "single_shower" : Events with only one electromagnetic shower in the TPC
 
 More information and summary [here](https://docs.google.com/presentation/d/1klCcoK28NR_CSr-WOS0BWL4bcNxBbEg8KntnX9bOoa4/edit?usp=sharing)
+
+Fcl file location: /pnfs/sbnd/persistent/users/bmweiss/genie_filtered/prodgenie_corsika_proton_rockbox_filtered_sbnd.fcl
+
+XML configuration file location: /exp/sbnd/app/users/bmweiss/workdir/genieLarge/sbnd_truth_large.xml
+
+Analyzer file location: /exp/sbnd/app/users/bmweiss/workdir/my_larsoft/srcs/sbndcode/sbndcode/TwoFilters/MyAnalyzerFilter_module.cc
+
+Analyzer file fcl location: /exp/sbnd/app/users/bmweiss/workdir/my_larsoft/srcs/sbndcode/sbndcode/TwoFilters/MyAnalyzer_filtered.fcl
+
+Data location: /exp/sbnd/app/users/bmweiss/workdir/analyzedFiles/combined.root
+
+Backups of all these files located at /pnfs/sbnd/persistent/users/bmweiss/prism_NCPi0_truth_study
