@@ -54,3 +54,5 @@
 - "is_NC" : Mask for neutral current events
 - "has_non_primary" : Events that contain at least 1 cosmic or reinteraction $\pi^0$
 - "single_shower" : Events with only one electromagnetic shower in the TPC
+
+More information and summary [here](https://docs.google.com/presentation/d/1klCcoK28NR_CSr-WOS0BWL4bcNxBbEg8KntnX9bOoa4/edit?usp=sharing)
